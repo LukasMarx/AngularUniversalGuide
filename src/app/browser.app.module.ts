@@ -1,5 +1,8 @@
 import { AppModule } from './app.module';
-import { BrowserModule } from '@angular/platform-browser';
+import {
+    BrowserModule,
+    BrowserTransferStateModule // <--- Added
+} from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
 import { AppComponent } from './app.component';
@@ -10,6 +13,7 @@ import { AppComponent } from './app.component';
         BrowserModule.withServerTransition({
             appId: 'my-app-id'
         }),
+        BrowserTransferStateModule, // <--- Added
         AppModule
     ],
     providers: [],

@@ -1,3 +1,4 @@
+import { BrowserTransferStateModule } from '@angular/platform-browser';
 import { PostRoutes } from './post.routing';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
