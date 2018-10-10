@@ -4,7 +4,7 @@ require('zone.js/dist/zone-node');
 const express = require('express');
 const ngExpressEngine = require('@nguniversal/express-engine').ngExpressEngine;
 
-const { ServerAppModuleNgFactory, LAZY_MODULE_MAP } = require('./dist-server/main.bundle');
+const { ServerAppModuleNgFactory, LAZY_MODULE_MAP } = require('./dist/server/main.js');
 
 const app = express();
 
@@ -24,11 +24,11 @@ app.set('view engine', 'html');
 app.set('views', __dirname);
 
 app.use(express.static(__dirname + '/assets', { index: false }));
-app.use(express.static(__dirname + '/dist', { index: false }));
+app.use(express.static(__dirname + '/dist/browser', { index: false }));
 
 app.get('/*', (req, res) => {
   console.time(`GET: ${req.originalUrl}`);
-  res.render('./dist/index', {
+  res.render('./dist/browser/index', {
     req: req,
     res: res
   });
